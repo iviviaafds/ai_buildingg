@@ -1,16 +1,12 @@
 # TODO решите задачу
-
+import json
 def task() -> float:
     """
     Функция для вычисления суммы произведений значений "score" и "weight" из списка словарей.
     """
-
+    with open("input.json", mode='r', encoding='utf-8') as json_file:
     # Данные JSON напрямую в коде
-    data = [
-        {"score": 0.5, "weight": 2},
-        {"score": 1.0, "weight": 1},
-        {"score": 0.296, "weight": 1}
-    ]
+        data = json.load(json_file)
 
     # Вычисляем сумму произведений
     total_sum = sum(item.get("score", 0) * item.get("weight", 0) for item in data)
